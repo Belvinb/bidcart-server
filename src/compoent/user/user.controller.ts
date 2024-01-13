@@ -28,7 +28,7 @@ import { SettingsDto } from 'src/common/dto/settings.dto';
 import { CreateUserDto } from 'src/common/dto/create-user.dto';
  
 @Controller('users')
-// @UseGuards(AuthGuard('jwt'))
+ @UseGuards(AuthGuard('jwt'))
 @UseInterceptors(LoggingInterceptor, TransformInterceptor)
 export class UserController {
   constructor(private readonly usersService: UserService) {}
