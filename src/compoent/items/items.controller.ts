@@ -7,9 +7,9 @@ import {
   Body,
   Param,
 } from '@nestjs/common';
-import { CreateItemDto } from './dto/create-item.dto';
+import { CreateItemDto } from '../../common/dto/create-item.dto';
 import { ItemsService } from './items.service';
-import { Item } from './interfaces/item.interface';
+import { Item } from '../../common/interfaces/item.interface';
 
 @Controller('items')
 export class ItemsController {

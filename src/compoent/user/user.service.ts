@@ -1,14 +1,17 @@
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
 import { Injectable, HttpStatus, HttpException } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { User } from './interfaces/user.interface';
+
+import { User } from '../../common/interfaces/user.interface';
 import { InjectModel } from '@nestjs/mongoose';
-import { UpdateGalleryDto } from './dto/update-gallery.dto';
+
 import * as _ from 'lodash'
-import { ProfileDto } from './dto/profile.dto';
-import { SettingsDto } from './dto/settings.dto';
-import { PhotoDto } from './dto/photo.dto';
+
+import { CreateUserDto } from 'src/common/dto/create-user.dto';
+import { UpdateGalleryDto } from 'src/common/dto/update-gallery.dto';
+import { ProfileDto } from 'src/common/dto/profile.dto';
+import { SettingsDto } from 'src/common/dto/settings.dto';
+import { PhotoDto } from 'src/common/dto/photo.dto';
 
 const saltRounds = 10;
 
