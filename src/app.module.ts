@@ -11,7 +11,12 @@ import { UserModule } from './compoent/user/user.module';
 import { AuthModule } from './compoent/auth/auth.module';
 
 @Module({
-  imports: [ItemsModule, MongooseModule.forRoot(config.mongoURI), UserModule, AuthModule],
+  imports: [ItemsModule, MongooseModule.forRoot(config.mongoURI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }), UserModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
