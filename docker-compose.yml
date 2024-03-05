@@ -4,22 +4,21 @@ services:
       context: ./
       dockerfile: Dockerfile
     restart: always
-    # environment:
-    #   - DATABASE_HOST=mongo
-    #   - PORT=3000
+    environment:
+      - DATABASE_HOST=mongo
+      - PORT=3000
     ports:
       - '3000:3000'
-#     depends_on: [mongo]
-#   mongo:
-#     image: mongo
-#     ports:
-#       - '27017:27017'
-#     environment:
-#       - MONGO_INITDB_ROOT_USERNAME=admin
-#       - MONGO_INITDB_ROOT_PASSWORD=password
+    depends_on: [mongo]
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    environment:
+      - MONGO_INITDB_DATABASE="popcart"
 
-#     volumes:
-#       - mongo_data:/data/db
+    volumes:
+      - mongo_data:/data/db
 
-# volumes:
-#   mongo_data: {}
+volumes:
+  mongo_data: {}

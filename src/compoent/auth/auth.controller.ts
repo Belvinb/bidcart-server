@@ -36,12 +36,12 @@ export class AuthController {
       var newUser = new UserDto(await this.userService.createNewUser(createUserDto));
       await this.authService.createEmailToken(newUser.email);
       //await this.authService.saveUserConsent(newUser.email); //[GDPR user content]
-      var sent = await this.authService.sendEmailVerification(newUser.email);
-      if(sent){
+      //var sent = await this.authService.sendEmailVerification(newUser.email);
+     // if(sent){
         return new ResponseSuccess("REGISTRATION.USER_REGISTERED_SUCCESSFULLY");
-      } else {
-        return new ResponseError("REGISTRATION.ERROR.MAIL_NOT_SENT");
-      }
+      // } else {
+      //   return new ResponseError("REGISTRATION.ERROR.MAIL_NOT_SENT");
+      // }
     } catch(error){
       return new ResponseError("REGISTRATION.ERROR.GENERIC_ERROR", error);
     }
